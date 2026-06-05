@@ -6,6 +6,7 @@ const prefersReducedMotion = window.matchMedia(
   "(prefers-reduced-motion: reduce)",
 ).matches;
 
+// ---------- Lenis smooth scroll ----------
 if (typeof Lenis !== "undefined" && !prefersReducedMotion) {
   const lenis = new Lenis({
     duration: 1.08,
@@ -46,31 +47,33 @@ if (cursor && window.matchMedia("(pointer:fine)").matches) {
 }
 
 // ---------- Magnetic buttons ----------
-document.querySelectorAll("[data-magnetic]").forEach((el) => {
-  const factor = 20;
+if (window.matchMedia("(pointer:fine)").matches) {
+  document.querySelectorAll("[data-magnetic]").forEach((el) => {
+    const factor = 20;
 
-  el.addEventListener("mousemove", (e) => {
-    const rect = el.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width - 0.5) * factor;
-    const y = ((e.clientY - rect.top) / rect.height - 0.5) * factor;
+    el.addEventListener("mousemove", (e) => {
+      const rect = el.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width - 0.5) * factor;
+      const y = ((e.clientY - rect.top) / rect.height - 0.5) * factor;
 
-    gsap.to(el, {
-      x,
-      y,
-      duration: 0.3,
-      ease: "power2.out",
+      gsap.to(el, {
+        x,
+        y,
+        duration: 0.3,
+        ease: "power2.out",
+      });
+    });
+
+    el.addEventListener("mouseleave", () => {
+      gsap.to(el, {
+        x: 0,
+        y: 0,
+        duration: 0.5,
+        ease: "elastic.out(1, 0.45)",
+      });
     });
   });
-
-  el.addEventListener("mouseleave", () => {
-    gsap.to(el, {
-      x: 0,
-      y: 0,
-      duration: 0.5,
-      ease: "elastic.out(1, 0.45)",
-    });
-  });
-});
+}
 
 // ---------- Menu móvil ----------
 const menuToggle = document.querySelector(".menu-toggle");
@@ -102,31 +105,184 @@ window.addEventListener(
   { passive: true },
 );
 
-// ---------- Intro + reveal ----------
-gsap.to(".hero-media img", {
-  scale: 1,
-  duration: prefersReducedMotion ? 0.01 : 2,
-  ease: "power2.out",
-});
+// ---------- GSAP matchMedia for responsive animations ----------
+const mm = gsap.matchMedia();
 
-if (!prefersReducedMotion) {
-  gsap.fromTo(
-    ".hero-media img",
-    { yPercent: -4, scale: 1.14 },
-    {
-      yPercent: 20,
-      scale: 1.02,
+// Desktop animations
+mm.add("(min-width: 1025px)", () => {
+  // Hero image intro
+  gsap.to(".hero-media img", {
+    scale: 1,
+    duration: prefersReducedMotion ? 0.01 : 2,
+    ease: "power2.out",
+  });
+
+  if (!prefersReducedMotion) {
+    gsap.fromTo(
+      ".hero-media img",
+      { yPercent: -4, scale: 1.14 },
+      {
+        yPercent: 20,
+        scale: 1.02,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".hero",
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      },
+    );
+  }
+
+  // Parallax cards
+  gsap.utils.toArray(".property-card").forEach((card, i) => {
+    gsap.from(card, {
+      y: 120,
+      opacity: 0,
+      duration: 1.1,
+      ease: "power3.out",
+      delay: i * 0.08,
+      scrollTrigger: {
+        trigger: card,
+        start: "top 88%",
+      },
+    });
+
+    gsap.to(card.querySelector("img"), {
+      yPercent: -30,
       ease: "none",
       scrollTrigger: {
-        trigger: ".hero",
-        start: "top top",
+        trigger: card,
+        start: "top bottom",
         end: "bottom top",
         scrub: true,
       },
-    },
-  );
-}
+    });
+  });
 
+  // Tilt interaction
+  document.querySelectorAll("[data-tilt]").forEach((card) => {
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width;
+      const y = (e.clientY - rect.top) / rect.height;
+
+      gsap.to(card, {
+        rotateY: (x - 0.5) * 24,
+        rotateX: (0.5 - y) * 20,
+        scale: 1.05,
+        transformPerspective: 600,
+        duration: 0.28,
+        ease: "power2.out",
+      });
+    });
+
+    card.addEventListener("mouseleave", () => {
+      gsap.to(card, {
+        rotateY: 0,
+        rotateX: 0,
+        scale: 1,
+        duration: 0.5,
+        ease: "power3.out",
+      });
+    });
+  });
+});
+
+// Tablet landscape
+mm.add("(max-width: 1024px) and (orientation: landscape)", () => {
+  gsap.to(".hero-media img", {
+    scale: 1,
+    duration: prefersReducedMotion ? 0.01 : 1.5,
+    ease: "power2.out",
+  });
+
+  gsap.utils.toArray(".property-card").forEach((card, i) => {
+    gsap.from(card, {
+      y: 80,
+      opacity: 0,
+      duration: 0.9,
+      ease: "power3.out",
+      delay: i * 0.06,
+      scrollTrigger: {
+        trigger: card,
+        start: "top 90%",
+      },
+    });
+  });
+});
+
+// Tablet portrait
+mm.add("(max-width: 1024px) and (orientation: portrait)", () => {
+  gsap.to(".hero-media img", {
+    scale: 1,
+    duration: prefersReducedMotion ? 0.01 : 1.5,
+    ease: "power2.out",
+  });
+
+  gsap.utils.toArray(".property-card").forEach((card, i) => {
+    gsap.from(card, {
+      y: 60,
+      opacity: 0,
+      duration: 0.85,
+      ease: "power3.out",
+      delay: i * 0.05,
+      scrollTrigger: {
+        trigger: card,
+        start: "top 92%",
+      },
+    });
+  });
+});
+
+// Mobile portrait
+mm.add("(max-width: 599px)", () => {
+  gsap.to(".hero-media img", {
+    scale: 1,
+    duration: prefersReducedMotion ? 0.01 : 1,
+    ease: "power2.out",
+  });
+
+  gsap.utils.toArray(".property-card").forEach((card, i) => {
+    gsap.from(card, {
+      y: 40,
+      opacity: 0,
+      duration: 0.7,
+      ease: "power3.out",
+      delay: i * 0.04,
+      scrollTrigger: {
+        trigger: card,
+        start: "top 94%",
+      },
+    });
+  });
+});
+
+// Mobile landscape
+mm.add("(max-width: 768px) and (orientation: landscape)", () => {
+  gsap.to(".hero-media img", {
+    scale: 1,
+    duration: prefersReducedMotion ? 0.01 : 1,
+    ease: "power2.out",
+  });
+
+  gsap.utils.toArray(".property-card").forEach((card, i) => {
+    gsap.from(card, {
+      y: 50,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power3.out",
+      delay: i * 0.05,
+      scrollTrigger: {
+        trigger: card,
+        start: "top 90%",
+      },
+    });
+  });
+});
+
+// ---------- Universal reveal & counters (all breakpoints) ----------
 gsap.to(".reveal-title", {
   y: 0,
   opacity: 1,
@@ -168,78 +324,17 @@ counters.forEach((counter) => {
       once: true,
     },
     onUpdate: () => {
-      const suffix = target > 100 ? "+" : target === 98 ? "%" : "+";
+      const suffix = "+";
       counter.textContent = `${Math.round(snap.val)}${suffix}`;
     },
   });
 });
 
-// ---------- Parallax cards ----------
-gsap.utils.toArray(".property-card").forEach((card, i) => {
-  gsap.from(card, {
-    y: 120,
-    opacity: 0,
-    duration: 1.1,
-    ease: "power3.out",
-    delay: i * 0.08,
-    scrollTrigger: {
-      trigger: card,
-      start: "top 88%",
-    },
-  });
-
-  gsap.to(card.querySelector("img"), {
-    yPercent: -30,
-    ease: "none",
-    scrollTrigger: {
-      trigger: card,
-      start: "top bottom",
-      end: "bottom top",
-      scrub: true,
-    },
-  });
-});
-
-// ---------- Tilt interaction ----------
-document.querySelectorAll("[data-tilt]").forEach((card) => {
-  card.addEventListener("mousemove", (e) => {
-    if (!window.matchMedia("(pointer:fine)").matches) return;
-
-    const rect = card.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width;
-    const y = (e.clientY - rect.top) / rect.height;
-
-    gsap.to(card, {
-      rotateY: (x - 0.5) * 24,
-      rotateX: (0.5 - y) * 20,
-      scale: 1.05,
-      transformPerspective: 600,
-      duration: 0.28,
-      ease: "power2.out",
-    });
-  });
-
-  card.addEventListener("mouseleave", () => {
-    gsap.to(card, {
-      rotateY: 0,
-      rotateX: 0,
-      scale: 1,
-      duration: 0.5,
-      ease: "power3.out",
-    });
-  });
-});
-
-// ---------- Three.js ambient particles ----------
+// ---------- Three.js ambient particles (azul cobalto) ----------
 const canvas = document.getElementById("luxCanvas");
 if (canvas) {
   if (prefersReducedMotion) {
     canvas.style.display = "none";
-  }
-
-  if (prefersReducedMotion) {
-    // Evita carga WebGL en perfiles con movimiento reducido.
-    // El fondo visual se mantiene con la imagen del hero y gradientes CSS.
   } else {
     const scene = new THREE.Scene();
     const renderer = new THREE.WebGLRenderer({
@@ -292,21 +387,23 @@ if (canvas) {
       return { field, mat };
     };
 
+    // Azul cobalto – partículas principales en el hero oscuro
     const primary = createField({
       count: pointsCountPrimary,
-      color: "#d8b36b",
-      size: 0.22,
-      opacity: 0.7,
+      color: "#60a5fa",
+      size: 0.18,
+      opacity: 0.5,
       spreadX: 96,
       spreadY: 56,
       spreadZ: 70,
     });
 
+    // Blanco puro – sutiles puntos de luz
     const secondary = createField({
       count: pointsCountSecondary,
-      color: "#f6f2e8",
-      size: 0.12,
-      opacity: 0.45,
+      color: "#ffffff",
+      size: 0.1,
+      opacity: 0.35,
       spreadX: 78,
       spreadY: 46,
       spreadZ: 90,
@@ -342,8 +439,8 @@ if (canvas) {
       onUpdate: (self) => {
         primary.field.rotation.z = self.progress * 0.8;
         secondary.field.rotation.z = -self.progress * 0.55;
-        primary.mat.opacity = 0.7 - self.progress * 0.34;
-        secondary.mat.opacity = 0.45 - self.progress * 0.2;
+        primary.mat.opacity = 0.6 - self.progress * 0.3;
+        secondary.mat.opacity = 0.4 - self.progress * 0.18;
       },
     });
   }
@@ -360,7 +457,7 @@ if (leadForm) {
     if (!(feedback instanceof HTMLElement)) return;
 
     feedback.textContent =
-      "Excelente. Briefing enviado. Nuestro equipo premium le contactará en menos de 24 horas.";
+      "¡Solicitud enviada! Nuestro equipo de especialistas te contactará en menos de 24 horas.";
     leadForm.reset();
 
     gsap.fromTo(

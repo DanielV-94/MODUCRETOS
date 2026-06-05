@@ -4,17 +4,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LAA Real Estate — Bienes Raíces de Excelencia</title>
+  <title>MODUCRETOS — Concretos Mexicanos de Alto Desempeño</title>
   <meta name="description"
-    content="LAA Real Estate: firma inmobiliaria y despacho arquitectónico de lujo con más de 25 años de experiencia. Propiedades exclusivas en CDMX, Valle de Bravo y Punta Mita." />
+    content="MODUCRETOS: Diseño, fabricación, instalación y mantenimiento de elementos constructivos en concreto. Más de 180 acabados. Proyectos de alto impacto en México." />
   <link rel="icon"
-    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23060709'/%3E%3Ctext x='50' y='58' text-anchor='middle' font-size='48' font-family='Arial' fill='%23d8b36b'%3EL%3C/text%3E%3C/svg%3E" />
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23f8f9fb'/%3E%3Ctext x='50' y='62' text-anchor='middle' font-size='42' font-family='Georgia' font-weight='bold' fill='%231a3f8b'%3EM%3C/text%3E%3C/svg%3E" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@500;600;700;800&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="./styles.css" />
 </head>
@@ -23,255 +21,308 @@
   <div class="noise-overlay" aria-hidden="true"></div>
   <div class="cursor" aria-hidden="true"></div>
 
+  <!-- ═══ NAVBAR ═══ -->
   <header class="nav" id="top">
     <a href="#top" class="brand" data-magnetic>
-      <span class="brand-main">LAA</span>
-      <span class="brand-accent">Estate Signature</span>
+      <img src="./assets/logo/logo.png" alt="MODUCRETOS" class="brand-logo" />
+      <div class="brand-text">
+        <span class="brand-main">MODUCRETOS</span>
+        <span class="brand-accent">Concretos Mexicanos</span>
+      </div>
     </a>
 
     <button class="menu-toggle" aria-expanded="false" aria-controls="mobileMenu">Menú</button>
 
     <nav class="nav-links" aria-label="Principal">
-      <a href="#propuesta">Propuesta</a>
-      <a href="#coleccion">Colección</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#proyectos">Proyectos</a>
       <a href="#servicios">Servicios</a>
+      <a href="#acabados">Acabados</a>
       <a href="#contacto">Contacto</a>
     </nav>
 
-    <a href="#contacto" class="btn btn-outline" data-magnetic>Agenda privada</a>
+    <a href="#contacto" class="btn btn-outline" data-magnetic>Cotizar</a>
   </header>
 
   <aside id="mobileMenu" class="mobile-menu" aria-hidden="true">
-    <a href="#propuesta">Propuesta</a>
-    <a href="#coleccion">Colección</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#proyectos">Proyectos</a>
     <a href="#servicios">Servicios</a>
+    <a href="#acabados">Acabados</a>
     <a href="#contacto">Contacto</a>
   </aside>
 
   <main>
-    <section class="hero" id="propuesta">
+    <!-- ═══ HERO ═══ -->
+    <section class="hero" id="nosotros">
       <canvas id="luxCanvas" aria-hidden="true"></canvas>
       <div class="hero-media">
-        <img src="./assets/hero-mansion.jpg" alt="Residencia de lujo" />
+        <img src="./assets/hero-mansion.jpg" alt="Fachada de concreto arquitectónico de alto desempeño" />
       </div>
       <div class="hero-gradient"></div>
 
       <div class="hero-content wrapper">
-        <p class="eyebrow reveal">Bienes Raíces de Excelencia · Est. 2001 · CDMX</p>
+        <p class="eyebrow reveal">Diseño · Fabricación · Instalación · Mantenimiento</p>
         <h1 class="hero-title reveal-title">
-          No vendemos propiedades.
-          <span>Vendemos el arte de vivir bien.</span>
+          Donde el concreto
+          <span>se convierte en arquitectura.</span>
         </h1>
         <p class="hero-subtitle reveal">
-          LAA Real Estate une dirección inmobiliaria de alto patrimonio con un despacho arquitectónico
-          de vanguardia — para clientes que exigen lo extraordinario.
+          Transformamos las visiones más ambiciosas de arquitectos y desarrolladores en
+          elementos constructivos de concreto con precisión milimétrica, acabados de lujo
+          y ejecución impecable en cada proyecto.
         </p>
         <div class="hero-cta reveal">
-          <a href="#coleccion" class="btn btn-solid" data-magnetic>Ver colección privada</a>
-          <a href="#contacto" class="btn btn-ghost" data-magnetic>Solicitar estrategia</a>
+          <a href="#proyectos" class="btn btn-solid" data-magnetic>Explorar proyectos</a>
+          <a href="#contacto" class="btn btn-ghost" data-magnetic>Agendar consultoría</a>
         </div>
       </div>
 
       <div class="hero-stats wrapper">
         <article>
-          <h3 class="counter" data-target="500">0</h3>
-          <p>Propiedades vendidas</p>
-        </article>
-        <article>
-          <h3 class="counter" data-target="1000">0</h3>
-          <p>Clientes satisfechos</p>
-        </article>
-        <article>
-          <h3 class="counter" data-target="25">0</h3>
-          <p>Años de experiencia</p>
+          <h3 class="counter" data-target="180">0</h3>
+          <p>Acabados disponibles</p>
         </article>
         <article>
           <h3 class="counter" data-target="50">0</h3>
-          <p>Premios y reconocimientos</p>
+          <p>Proyectos de alto impacto</p>
+        </article>
+        <article>
+          <h3 class="counter" data-target="15">0</h3>
+          <p>Años de trayectoria</p>
+        </article>
+        <article>
+          <h3 class="counter" data-target="3">0</h3>
+          <p>Estados con presencia</p>
         </article>
       </div>
     </section>
 
-    <section class="collection wrapper" id="coleccion">
-      <div class="section-head">
-        <p class="eyebrow reveal">Colección Signature</p>
-        <h2 class="reveal">Propiedades exclusivas seleccionadas para su estilo de vida</h2>
-      </div>
-
-      <div class="cards-grid">
-        <article class="property-card" data-tilt>
-          <img src="./assets/property-penthouse.jpg" alt="Penthouse Skyline" />
-          <div class="card-overlay">
-            <p>Polanco · CDMX</p>
-            <h3>Penthouse Skyline</h3>
-            <span>$45,000,000 MXN</span>
-            <ul class="card-specs">
-              <li>4 Recámaras</li>
-              <li>5 Baños</li>
-              <li>450 m²</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="property-card" data-tilt>
-          <img src="./assets/property-villa.jpg" alt="Villa Toscana" />
-          <div class="card-overlay">
-            <p>Valle de Bravo · Estado de México</p>
-            <h3>Villa Toscana</h3>
-            <span>$28,500,000 MXN</span>
-            <ul class="card-specs">
-              <li>5 Recámaras</li>
-              <li>6 Baños</li>
-              <li>680 m²</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="property-card" data-tilt>
-          <img src="./assets/property-beach.jpg" alt="Casa Azure" />
-          <div class="card-overlay">
-            <p>Punta Mita · Nayarit</p>
-            <h3>Casa Azure</h3>
-            <span>$62,000,000 MXN</span>
-            <ul class="card-specs">
-              <li>6 Recámaras</li>
-              <li>7 Baños</li>
-              <li>820 m²</li>
-            </ul>
-          </div>
-        </article>
+    <!-- ═══ MANIFIESTO ═══ -->
+    <section class="manifesto wrapper">
+      <div class="manifesto-content reveal">
+        <p class="eyebrow">Nuestra Visión</p>
+        <blockquote>
+          Como arquitectos siempre buscamos, además de funcionalidad, una arquitectura que
+          trascienda en la sociedad. En MODUCRETOS apoyamos con soluciones técnicas y de
+          diseño esas ideas — desde la concepción hasta la entrega final.
+        </blockquote>
       </div>
     </section>
 
+    <!-- ═══ PROYECTOS ═══ -->
+    <section class="collection" id="proyectos">
+      <div class="wrapper">
+        <div class="section-head">
+          <p class="eyebrow reveal">Proyectos Ejecutados</p>
+          <h2 class="reveal">Fabricación e instalación de alto impacto arquitectónico</h2>
+        </div>
+
+        <div class="cards-grid">
+          <article class="property-card" data-tilt>
+            <img src="./assets/property-penthouse.jpg" alt="Ciudad Judicial del Estado de Jalisco" />
+            <div class="card-overlay">
+              <p>Jalisco · Gobierno</p>
+              <h3>Ciudad Judicial</h3>
+              <span>Fachadas prefabricadas de concreto arquitectónico para el complejo judicial más grande de Jalisco</span>
+              <ul class="card-specs">
+                <li>Fachadas</li>
+                <li>Prefabricado</li>
+                <li>Gran escala</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="property-card" data-tilt>
+            <img src="./assets/property-villa.jpg" alt="Universidad de León Campus Guanajuato" />
+            <div class="card-overlay">
+              <p>Guanajuato · Educación</p>
+              <h3>Universidad de León</h3>
+              <span>Elementos estructurales y pisos con acabados especiales para campus universitario</span>
+              <ul class="card-specs">
+                <li>Pisos</li>
+                <li>Estructura</li>
+                <li>Acabados</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="property-card" data-tilt>
+            <img src="./assets/property-beach.jpg" alt="Auditorio Telmex Guadalajara" />
+            <div class="card-overlay">
+              <p>Guadalajara · Cultural</p>
+              <h3>Auditorio Telmex</h3>
+              <span>Elementos de plaza, adoquines y pavimentos para uno de los recintos más icónicos del occidente</span>
+              <ul class="card-specs">
+                <li>Plaza</li>
+                <li>Adoquines</li>
+                <li>Pavimentos</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SERVICIOS ═══ -->
     <section class="services" id="servicios">
       <div class="wrapper services-layout">
         <div class="services-copy">
-          <p class="eyebrow reveal">Servicio White-Glove</p>
-          <h2 class="reveal">Excelencia en cada detalle de su patrimonio.</h2>
+          <p class="eyebrow reveal">Servicio Integral</p>
+          <h2 class="reveal">De la idea al elemento terminado.</h2>
           <p class="reveal">
-            En LAA Real Estate unimos consultoría de inversión, comercialización inteligente y visión
-            arquitectónica para convertir propiedades en activos memorables y rentables.
+            Asesoramos y ejecutamos todo lo relacionado con la construcción en concreto.
+            Nuestro equipo de ingenieros y arquitectos garantiza cada producto con cálculos
+            estructurales, control de calidad y eficiencia en tiempos de entrega.
           </p>
           <ul class="services-list reveal">
-            <li>Compra, venta y renta de propiedades de lujo</li>
-            <li>Gestión integral de patrimonio inmobiliario</li>
-            <li>Estrategias de inversión y retorno de capital</li>
-            <li>Diseño arquitectónico y remodelación</li>
-            <li>Interiorismo y diseño de espacios personalizados</li>
+            <li>Proyecto arquitectónico — soluciones técnicas para materializar ideas</li>
+            <li>Fabricación de elementos — producción controlada en planta</li>
+            <li>Instalación en obra — adaptación a programas de obra asignados</li>
+            <li>Ingenierías — cálculo estructural y garantía de productos</li>
+            <li>Mantenimiento — plazas, pavimentos, adoquines y fachadas</li>
+            <li>Eficiencia energética — elementos que reducen gastos operativos</li>
           </ul>
-          <a href="#contacto" class="btn btn-solid reveal" data-magnetic>Quiero esta experiencia</a>
+          <a href="#contacto" class="btn btn-solid reveal" data-magnetic>Solicitar propuesta técnica</a>
         </div>
 
         <div class="services-media">
           <figure class="media-card reveal">
-            <img src="./assets/consultation-service.jpg" alt="Consultoría de lujo" />
-            <figcaption>Real Estate Advisory</figcaption>
+            <img src="./assets/consultation-service.jpg" alt="Consultoría y diseño en concreto arquitectónico" />
+            <figcaption>Consultoría & Diseño</figcaption>
           </figure>
           <figure class="media-card reveal">
-            <img src="./assets/architecture-service.jpg" alt="Diseño arquitectónico" />
-            <figcaption>Architecture & Interior Vision</figcaption>
+            <img src="./assets/architecture-service.jpg" alt="Fabricación y ejecución en obra" />
+            <figcaption>Fabricación & Ejecución</figcaption>
           </figure>
         </div>
       </div>
     </section>
 
-    <section class="experience wrapper">
+    <!-- ═══ ACABADOS ═══ -->
+    <section class="experience wrapper" id="acabados">
       <div class="section-head">
-        <p class="eyebrow reveal">Por qué esta propuesta convierte</p>
-        <p class="eyebrow reveal">Nuestra Filosofía</p>
-        <h2 class="reveal">Más de 25 años construyendo legados inmobiliarios en México</h2>
+        <p class="eyebrow reveal">Acabados Premium</p>
+        <h2 class="reveal">Más de 180 tipos de terminados en colores</h2>
       </div>
 
       <div class="benefits">
         <article class="benefit reveal">
-          <h3>Impacto inmediato</h3>
-          <h3>Experiencia comprobada</h3>
-          <p>Más de 500 propiedades vendidas y 1,000+ clientes satisfechos respaldan nuestra trayectoria desde 2001.</p>
+          <h3>Muros prefabricados</h3>
+          <p>Acabados aplicables en muros con texturas, colores y patrones personalizados según la visión del arquitecto.</p>
         </article>
         <article class="benefit reveal">
-          <h3>Recorrido persuasivo</h3>
-          <h3>Enfoque integral</h3>
-          <p>Somos la única firma que combina dirección inmobiliaria de alto patrimonio con despacho arquitectónico de
-            vanguardia bajo un mismo techo.</p>
+          <h3>Pisos & Pavimentos</h3>
+          <p>Soluciones para plazas, andadores y espacios públicos con durabilidad superior y estética arquitectónica.</p>
         </article>
         <article class="benefit reveal">
-          <h3>Conversión premium</h3>
-          <h3>Presencia nacional</h3>
-          <p>Operamos en los mercados premium de CDMX, Valle de Bravo, Los Cabos y Punta Mita con más de 50 premios y
-            reconocimientos del sector inmobiliario.</p>
+          <h3>Elementos de fachada</h3>
+          <p>Piezas prefabricadas con acabados de alta gama que combinan funcionalidad estructural con belleza visual.</p>
         </article>
       </div>
     </section>
 
+    <!-- ═══ DIFERENCIADORES ═══ -->
+    <section class="differentiators wrapper">
+      <div class="section-head">
+        <p class="eyebrow reveal">¿Por qué MODUCRETOS?</p>
+        <h2 class="reveal">Ingeniería, control y ejecución de clase mundial</h2>
+      </div>
+
+      <div class="diff-grid">
+        <article class="diff-card reveal">
+          <div class="diff-number">01</div>
+          <h3>Ingenierías garantizadas</h3>
+          <p>Calculamos y garantizamos cada producto. Respaldamos nuestro trabajo con ingeniería de precisión.</p>
+        </article>
+        <article class="diff-card reveal">
+          <div class="diff-number">02</div>
+          <h3>Control documental</h3>
+          <p>Generamos los documentos y formatos necesarios para transparencia y trazabilidad total en obra.</p>
+        </article>
+        <article class="diff-card reveal">
+          <div class="diff-number">03</div>
+          <h3>Integración tecnológica</h3>
+          <p>Utilizamos tecnología de punta para mejor control de producción, logística y ejecución en sitio.</p>
+        </article>
+        <article class="diff-card reveal">
+          <div class="diff-number">04</div>
+          <h3>Eficiencia energética</h3>
+          <p>Asesoramos para que los elementos de concreto contribuyan a reducir los gastos energéticos del inmueble.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ═══ CONTACTO ═══ -->
     <section class="contact wrapper" id="contacto">
       <div class="contact-card reveal">
         <div>
-          <p class="eyebrow">Consulta Privada</p>
-          <h2>Hablemos sobre su próxima inversión de alto valor.</h2>
-          <p>Agenda una consulta privada con nuestro equipo y descubra cómo podemos convertir su visión en el activo
-            perfecto.</p>
+          <p class="eyebrow">Inicie su Proyecto</p>
+          <h2>Hagamos realidad su visión en concreto.</h2>
+          <p>Nuestro equipo de ingenieros y arquitectos está listo para analizar su proyecto y ofrecer la solución constructiva más eficiente.</p>
           <div class="contact-info">
-            <p><strong>Oficina</strong><br />Paseo de la Reforma 250, Col. Juárez, CDMX 06600</p>
-            <p><strong>Teléfonos</strong><br />+52 (55) 1234-5678 · +52 (55) 8765-4321</p>
-            <p><strong>Email</strong><br />contacto@laarealestate.com</p>
-            <p><strong>Horario</strong><br />Lun–Vie 9:00–19:00 · Sáb 10:00–14:00</p>
+            <p><strong>Email</strong><br />ventas@moducretos.com</p>
+            <p><strong>Teléfonos</strong><br />312 123 52 75 · 33 12 50 14 02</p>
+            <p><strong>Cobertura</strong><br />Jalisco · Colima · Guanajuato</p>
+            <p><strong>Horario</strong><br />Lun–Vie 8:00–18:00 · Sáb 9:00–14:00</p>
           </div>
         </div>
 
         <form class="lead-form" id="leadForm">
           <label>
-            Nombre
-            <input id="name" type="text" name="name" required placeholder="Nombre completo" autocomplete="name" />
+            Nombre completo
+            <input id="name" type="text" name="name" required placeholder="Arq. Juan Pérez" autocomplete="name" />
           </label>
           <label>
-            Correo
-            <input id="email" type="email" name="email" required placeholder="correo@empresa.com"
+            Correo corporativo
+            <input id="email" type="email" name="email" required placeholder="contacto@despacho.com"
               autocomplete="email" />
           </label>
           <label>
             Teléfono
-            <input id="phone" type="tel" name="phone" required placeholder="+52 (55) 1234-5678" autocomplete="tel" />
+            <input id="phone" type="tel" name="phone" required placeholder="+52 (33) 1250 1402" autocomplete="tel" />
           </label>
           <label>
-            Tipo de propiedad o inversión de interés
+            Descripción del proyecto
             <textarea id="message" name="message" rows="4" required
-              placeholder="¿Qué tipo de propiedad busca y en qué zona de México?"></textarea>
+              placeholder="Tipo de obra, ubicación, elementos requeridos, programa de obra estimado..."></textarea>
           </label>
-          <button class="btn btn-solid" type="submit" data-magnetic>Solicitar consulta privada</button>
+          <button class="btn btn-solid" type="submit" data-magnetic>Enviar solicitud</button>
           <p class="form-feedback" aria-live="polite"></p>
         </form>
       </div>
     </section>
   </main>
 
+  <!-- ═══ FOOTER ═══ -->
   <footer class="footer wrapper">
     <div class="footer-brand">
-      <span class="brand-main">LAA</span>
-      <span class="brand-accent">Real Estate</span>
-      <p>Donde la excelencia en bienes raíces se encuentra con el arte de la arquitectura.</p>
+      <span class="brand-main">MODUCRETOS</span>
+      <span class="brand-accent">Concretos Mexicanos</span>
+      <p>Diseño, fabricación, instalación y mantenimiento de elementos constructivos en concreto de alto desempeño.</p>
     </div>
     <div class="footer-cols">
       <div>
         <h4>Navegación</h4>
-        <a href="#propuesta">Inicio</a>
-        <a href="#coleccion">Propiedades</a>
+        <a href="#nosotros">Inicio</a>
+        <a href="#proyectos">Proyectos</a>
         <a href="#servicios">Servicios</a>
+        <a href="#acabados">Acabados</a>
         <a href="#contacto">Contacto</a>
       </div>
       <div>
-        <h4>Contacto</h4>
-        <p>Paseo de la Reforma 250</p>
-        <p>Col. Juárez, CDMX 06600</p>
-        <p>+52 (55) 1234-5678</p>
-        <p>contacto@laarealestate.com</p>
+        <h4>Contacto directo</h4>
+        <p>ventas@moducretos.com</p>
+        <p>312 123 52 75</p>
+        <p>33 12 50 14 02</p>
+        <p>Jalisco · Colima · Guanajuato</p>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 LAA Real Estate. Todos los derechos reservados.</p>
+      <p>© 2026 MODUCRETOS. Todos los derechos reservados.</p>
       <div class="footer-legal">
-        <a href="#">Política de Privacidad</a>
-        <a href="#">Términos de Servicio</a>
-        <a href="#top">↑ Volver arriba</a>
+        <a href="#">Aviso de Privacidad</a>
+        <a href="#top">↑ Inicio</a>
       </div>
     </div>
   </footer>
